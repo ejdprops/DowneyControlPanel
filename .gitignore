@@ -1,0 +1,14 @@
+# Node / Wrangler
+node_modules/
+.wrangler/
+.dev.vars
+
+# ESP-IDF
+firmware/*/build/
+firmware/*/sdkconfig
+firmware/*/sdkconfig.old
+firmware/*/managed_components/
+firmware/*/dependencies.lock
+
+# OS
+.DS_Store

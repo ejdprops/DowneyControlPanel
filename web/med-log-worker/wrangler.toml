@@ -1,0 +1,12 @@
+name = "downey-med-log"
+main = "src/index.js"
+compatibility_date = "2026-07-01"
+
+[vars]
+GITHUB_OWNER = "ejdprops"
+GITHUB_REPO = "DowneyControlPanel"
+TIMEZONE = "America/Chicago"
+
+# Secrets (never stored in this file — set via `wrangler secret put`):
+#   SHARED_SECRET  — the code embedded in all 7 NFC tag URLs
+#   GITHUB_PAT     — fine-grained PAT scoped to this repo, Contents: write, Actions: write (dispatches)

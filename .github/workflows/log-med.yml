@@ -1,0 +1,80 @@
+name: Log medication taken
+
+on:
+  repository_dispatch:
+    types: [med_taken]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    env:
+      TZ: America/Chicago
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate and apply the scan
+        id: apply
+        run: |
+          person="${{ github.event.client_payload.person }}"
+          period="${{ github.event.client_payload.period }}"
+          day="${{ github.event.client_payload.day }}"
+
+          if [[ ! "$person" =~ ^(evan|karen)$ ]]; then
+            echo "::error::unknown person '$person'"; exit 1
+          fi
+
+          case "$person" in
+            evan)  valid_periods="am midday bedtime" ;;
+            karen) valid_periods="am midday dinner bedtime" ;;
+          esac
+          if [[ ! " $valid_periods " =~ " $period " ]]; then
+            echo "::error::unknown period '$period' for $person"; exit 1
+          fi
+
+          today_day=$(date +%-d)
+          if [[ "$day" != "$today_day" ]]; then
+            echo "::error::day mismatch: request had '$day', today is '$today_day' — rejecting stale/replayed scan"
+            exit 1
+          fi
+
+          today_date=$(date +%F)
+          now_iso=$(date -Iseconds)
+
+          python3 - "$person" "$period" "$today_date" "$now_iso" <<'PY'
+          import json, sys, pathlib
+
+          person, period, today_date, now_iso = sys.argv[1:5]
+          path = pathlib.Path("web/docs/status.json")
+          data = json.loads(path.read_text()) if path.exists() else {"date": today_date, "evan": {}, "karen": {}}
+
+          # A new day fully resets prior taken/timestamp state.
+          if data.get("date") != today_date:
+              data = {"date": today_date, "evan": {}, "karen": {}}
+
+          data.setdefault(person, {})[period] = {"taken": True, "timestamp": now_iso}
+          path.write_text(json.dumps(data, indent=2) + "\n")
+          PY
+
+      - name: Commit status.json
+        run: |
+          git config user.name "med-log-bot"
+          git config user.email "med-log-bot@users.noreply.github.com"
+          git add web/docs/status.json
+          git diff --cached --quiet && echo "no change" && exit 0
+          git commit -m "Log ${{ github.event.client_payload.person }} ${{ github.event.client_payload.period }} taken"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/docs
+      - uses: actions/deploy-pages@v4

@@ -1,0 +1,12 @@
+{
+  "name": "downey-med-log-worker",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "secrets": "echo 'Run: wrangler secret put SHARED_SECRET   &&   wrangler secret put GITHUB_PAT'"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
