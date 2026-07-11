@@ -1,0 +1,15 @@
+<globals>
+  <constants>
+    <color name="color_bg" value="0x14181f"/>
+    <color name="color_panel" value="0x1f2530"/>
+    <color name="color_text_primary" value="0xf5f6f8"/>
+    <color name="color_text_muted" value="0x8b93a3"/>
+    <color name="color_accent" value="0x4da3ff"/>
+    <color name="color_warn" value="0xff9f43"/>
+    <color name="color_alert" value="0xff5c5c"/>
+    <color name="color_ok" value="0x3ddc97"/>
+
+    <px name="screen_w" value="800"/>
+    <px name="screen_h" value="480"/>
+  </constants>
+</globals>

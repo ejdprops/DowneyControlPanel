@@ -1,0 +1,49 @@
+<screen>
+  <view width="800" height="480" style_bg_color="#color_bg" style_pad_all="0">
+
+    <!-- Top status bar: clock + date on the left, weather on the right -->
+    <lv_obj x="0" y="0" width="800" height="140" style_bg_color="#color_bg" style_border_width="0"
+            layout="flex" style_flex_flow="row" style_pad_all="24">
+
+      <lv_obj width="400" height="content" style_bg_opa="0" style_border_width="0"
+              layout="flex" style_flex_flow="column">
+        <lv_label name="clock_time" text="10:42 AM" style_text_color="#color_text_primary" style_text_font="montserrat_48"/>
+        <lv_label name="clock_date" text="Saturday, July 11" style_text_color="#color_text_muted" style_text_font="montserrat_20"/>
+      </lv_obj>
+
+      <lv_obj width="content" height="content" style_bg_opa="0" style_border_width="0"
+              layout="flex" style_flex_flow="row" style_flex_main_place="end" align="right_mid">
+        <lv_label name="weather_temp" text="72°F" style_text_color="#color_text_primary" style_text_font="montserrat_40"/>
+        <lv_label name="weather_cond" text="Partly Cloudy" style_text_color="#color_text_muted" style_text_font="montserrat_20"/>
+      </lv_obj>
+
+    </lv_obj>
+
+    <!-- Middle banner: outstanding med reminders, hidden when nothing is due -->
+    <lv_obj name="reminder_banner" x="24" y="156" width="752" height="64"
+            style_bg_color="#color_warn" style_radius="12" style_pad_all="16"
+            layout="flex" style_flex_flow="row" style_flex_align="center">
+      <lv_label name="reminder_text" text="Evan: midday dose not yet taken"
+                style_text_color="#color_bg" style_text_font="montserrat_20"/>
+    </lv_obj>
+
+    <!-- Bottom nav row: three big touch targets -->
+    <lv_obj x="24" y="248" width="752" height="200" style_bg_opa="0" style_border_width="0"
+            layout="flex" style_flex_flow="row" style_flex_main_place="space_between">
+
+      <lv_button name="btn_timer" width="232" height="200" style_bg_color="#color_panel" style_radius="16">
+        <lv_label text="Timer" align="center" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
+      </lv_button>
+
+      <lv_button name="btn_meds" width="232" height="200" style_bg_color="#color_panel" style_radius="16">
+        <lv_label text="Meds" align="center" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
+      </lv_button>
+
+      <lv_button name="btn_home_controls" width="232" height="200" style_bg_color="#color_panel" style_radius="16">
+        <lv_label text="Home" align="center" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
+      </lv_button>
+
+    </lv_obj>
+
+  </view>
+</screen>
