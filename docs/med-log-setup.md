@@ -84,3 +84,15 @@ confirm rejection.
 
 If it ever leaks: pick a new value, `wrangler secret put SHARED_SECRET`
 again, and update all 7 Shortcuts with the new `code`.
+
+## Troubleshooting: unexpected 403s
+
+The shared `*.workers.dev` domain has Cloudflare's own bot protection in
+front of it. A request with no/unusual `User-Agent` (e.g. bare `curl`,
+Python's default `urllib` UA) can get blocked with Cloudflare error 1010
+*before it ever reaches the Worker code* — this looks identical to a
+wrong `code` from the outside. iOS Shortcuts' "Get Contents of URL" sends
+normal-looking headers and was verified to work; when testing manually
+with `curl`, add `-A "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS
+X) AppleWebKit/605.1.15"` to rule this out before suspecting the secret or
+the Worker logic.
