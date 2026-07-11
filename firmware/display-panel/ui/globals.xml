@@ -1,5 +1,5 @@
 <globals>
-  <constants>
+  <consts>
     <color name="color_bg" value="0x14181f"/>
     <color name="color_panel" value="0x1f2530"/>
     <color name="color_text_primary" value="0xf5f6f8"/>
@@ -11,5 +11,5 @@
 
     <px name="screen_w" value="800"/>
     <px name="screen_h" value="480"/>
-  </constants>
+  </consts>
 </globals>
