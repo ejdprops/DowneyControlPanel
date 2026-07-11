@@ -1,0 +1,7 @@
+<project lvgl_version="9.5.0">
+	<targets>
+		<target name="crowpanel_7in">
+			<display width="800" height="480" />
+		</target>
+	</targets>
+</project>
