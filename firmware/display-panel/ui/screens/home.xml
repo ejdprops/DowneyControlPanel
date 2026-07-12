@@ -45,16 +45,22 @@
     <lv_obj x="24" y="248" width="752" height="200" style_bg_opa="0" style_border_width="0"
             flex_flow="row" style_flex_main_place="space_between">
 
-      <lv_button name="btn_timer" width="232" height="200" style_bg_color="#color_panel" style_radius="16">
-        <lv_label text="Timer" align="center" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
+      <lv_button name="btn_timer" width="232" height="200" style_bg_color="#color_panel" style_radius="16"
+                 flex_flow="column" style_flex_main_place="center" style_flex_cross_place="center" style_pad_row="12">
+        <lv_label text="#icon_clock" style_text_color="#color_accent" style_text_font="icons_48"/>
+        <lv_label text="Timer" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
       </lv_button>
 
-      <lv_button name="btn_meds" width="232" height="200" style_bg_color="#color_panel" style_radius="16">
-        <lv_label text="Meds" align="center" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
+      <lv_button name="btn_meds" width="232" height="200" style_bg_color="#color_panel" style_radius="16"
+                 flex_flow="column" style_flex_main_place="center" style_flex_cross_place="center" style_pad_row="12">
+        <lv_label text="#icon_pills" style_text_color="#color_accent" style_text_font="icons_48"/>
+        <lv_label text="Meds" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
       </lv_button>
 
-      <lv_button name="btn_home_controls" width="232" height="200" style_bg_color="#color_panel" style_radius="16">
-        <lv_label text="Home" align="center" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
+      <lv_button name="btn_home_controls" width="232" height="200" style_bg_color="#color_panel" style_radius="16"
+                 flex_flow="column" style_flex_main_place="center" style_flex_cross_place="center" style_pad_row="12">
+        <lv_label text="#icon_house" style_text_color="#color_accent" style_text_font="icons_48"/>
+        <lv_label text="Home" style_text_color="#color_text_primary" style_text_font="montserrat_28"/>
       </lv_button>
 
     </lv_obj>
