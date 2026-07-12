@@ -29,6 +29,6 @@
 
     <!-- Weather condition glyphs: sun, clouds, rain, snow, wind, thunderstorm (see erikflowers/weather-icons) -->
     <bin name="weather_icons_48" src_path="fonts/weathericons-regular-webfont.ttf" size="48" bpp="4" as_file="false"
-         range="0xf00d-0xf00d 0xf013-0xf013 0xf019-0xf019 0xf01b-0xf01b 0xf01e-0xf01e 0xf050-0xf050"/>
+         range="0xf00d-0xf00d,0xf013-0xf013,0xf019-0xf019,0xf01b-0xf01b,0xf01e-0xf01e,0xf050-0xf050"/>
   </fonts>
 </globals>
