@@ -11,6 +11,14 @@
 
     <px name="screen_w" value="800"/>
     <px name="screen_h" value="480"/>
+
+    <!-- Weather condition icon glyphs (weather_icons_48 font) -->
+    <string name="icon_sun" value="&#xf00d;"/>
+    <string name="icon_clouds" value="&#xf013;"/>
+    <string name="icon_rain" value="&#xf019;"/>
+    <string name="icon_snow" value="&#xf01b;"/>
+    <string name="icon_thunderstorm" value="&#xf01e;"/>
+    <string name="icon_wind" value="&#xf050;"/>
   </consts>
 
   <fonts>
@@ -18,5 +26,9 @@
     <bin name="montserrat_28" src_path="fonts/Montserrat-Medium.ttf" size="28" bpp="4" as_file="false"/>
     <bin name="montserrat_40" src_path="fonts/Montserrat-Medium.ttf" size="40" bpp="4" as_file="false" symbols="°"/>
     <bin name="montserrat_48" src_path="fonts/Montserrat-Medium.ttf" size="48" bpp="4" as_file="false"/>
+
+    <!-- Weather condition glyphs: sun, clouds, rain, snow, wind, thunderstorm (see erikflowers/weather-icons) -->
+    <bin name="weather_icons_48" src_path="fonts/weathericons-regular-webfont.ttf" size="48" bpp="4" as_file="false"
+         range="0xf00d-0xf00d 0xf013-0xf013 0xf019-0xf019 0xf01b-0xf01b 0xf01e-0xf01e 0xf050-0xf050"/>
   </fonts>
 </globals>

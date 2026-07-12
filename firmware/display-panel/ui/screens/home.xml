@@ -3,7 +3,7 @@
 
     <!-- Top status bar: clock + date on the left, weather on the right -->
     <lv_obj x="0" y="0" width="800" height="140" style_bg_color="#color_bg" style_border_width="0"
-            flex_flow="row" style_pad_all="24">
+            flex_flow="row" style_flex_main_place="space_between" style_pad_all="24">
 
       <lv_obj width="400" height="content" style_bg_opa="0" style_border_width="0"
               flex_flow="column">
@@ -11,10 +11,24 @@
         <lv_label name="clock_date" text="Saturday, July 11" style_text_color="#color_text_muted" style_text_font="montserrat_20"/>
       </lv_obj>
 
-      <lv_obj width="content" height="content" style_bg_opa="0" style_border_width="0"
-              flex_flow="row" style_flex_main_place="end" align="right_mid">
-        <lv_label name="weather_temp" text="72°F" style_text_color="#color_text_primary" style_text_font="montserrat_40"/>
-        <lv_label name="weather_cond" text="Partly Cloudy" style_text_color="#color_text_muted" style_text_font="montserrat_20"/>
+      <lv_obj name="weather_area" width="content" height="content" style_bg_opa="0" style_border_width="0"
+              flex_flow="row" style_flex_cross_place="center">
+
+        <lv_label name="weather_icon" text="#icon_clouds" style_text_color="#color_accent" style_text_font="weather_icons_48"/>
+
+        <lv_obj width="content" height="content" style_bg_opa="0" style_border_width="0"
+                flex_flow="column" style_pad_left="16">
+
+          <lv_label name="weather_temp" text="72°F" style_text_color="#color_text_primary" style_text_font="montserrat_40"/>
+          <lv_label name="weather_cond" text="Cloudy" style_text_color="#color_text_muted" style_text_font="montserrat_20"/>
+
+          <lv_obj width="content" height="content" style_bg_opa="0" style_border_width="0"
+                  flex_flow="row" style_pad_top="4">
+            <lv_label name="weather_high" text="H: 78°" style_text_color="#color_text_primary" style_text_font="montserrat_20"/>
+            <lv_label name="weather_low" text="L: 61°" style_text_color="#color_text_muted" style_text_font="montserrat_20" style_pad_left="16"/>
+          </lv_obj>
+
+        </lv_obj>
       </lv_obj>
 
     </lv_obj>
