@@ -12,4 +12,11 @@
     <px name="screen_w" value="800"/>
     <px name="screen_h" value="480"/>
   </consts>
+
+  <fonts>
+    <bin name="montserrat_20" src_path="fonts/Montserrat-Medium.ttf" size="20" bpp="4" as_file="false"/>
+    <bin name="montserrat_28" src_path="fonts/Montserrat-Medium.ttf" size="28" bpp="4" as_file="false"/>
+    <bin name="montserrat_40" src_path="fonts/Montserrat-Medium.ttf" size="40" bpp="4" as_file="false" symbols="°"/>
+    <bin name="montserrat_48" src_path="fonts/Montserrat-Medium.ttf" size="48" bpp="4" as_file="false"/>
+  </fonts>
 </globals>
